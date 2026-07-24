@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pfizer CARE Connect Academy</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-container">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    <img src="logopng.png" alt="Pfizer Logo" class="pfizer-logo">
+                    <div class="logo-text">
+                        <span class="logo-title">CARE Connect</span>
+                        <span class="logo-subtitle">Academy</span>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="#" class="active" data-target="view-academy">C.A.R.E. Connect Academy</a>
+                    <a href="#" data-target="view-clips">Care Clips</a>
+                    <a href="#" data-target="view-vault">Resource Vault</a>
+                    <a href="#" data-target="view-challenges">Care Challenges</a>
+                </nav>
+                <div class="header-actions">
+                    <i class="ph ph-chat-centered-dots action-icon" id="btn-chat"></i>
+                    <div class="notification" id="btn-notification">
+                        <i class="ph ph-bell action-icon"></i>
+                        <span class="badge">2</span>
+                        <div class="dropdown-menu" id="notif-dropdown">
+                            <div class="dropdown-header">Notificaciones</div>
+                            <div class="dropdown-item">Nueva guía subida</div>
+                            <div class="dropdown-item">Actualización de curso</div>
+                        </div>
+                    </div>
+                    <div class="profile-menu" id="btn-profile">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Profile" class="profile-pic">
+                        <div class="dropdown-menu" id="profile-dropdown">
+                            <div class="dropdown-item">Mi Perfil</div>
+                            <div class="dropdown-item">Configuración</div>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item">Cerrar Sesión</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Welcome Section (Visible across views, or can be dynamic) -->
+            <section class="welcome-section" id="welcome-section">
+                <div class="welcome-avatar-wrapper">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Dra. Paula Cabrera" class="large-profile-pic">
+                </div>
+                <div class="welcome-text">
+                    <h1 id="welcome-title">¡Bienvenida, Dra. Paula Cabrera!</h1>
+                    <p id="welcome-subtitle">Tu Hub de C.A.R.E. Connect</p>
+                </div>
+            </section>
+
+            <!-- Main Content Area -->
+            <main class="content-area">
+                
+                <!-- VIEW: ACADEMY (DASHBOARD ORIGINAL) -->
+                <div id="view-academy" class="view-section active">
+                    <div class="grid-container">
+                        <!-- Left Column -->
+                        <div class="col-left">
+                            <div class="card academy-progress-card">
+                                <h2 class="card-title">C.A.R.E. Connect Academy</h2>
+                                <div class="progress-info">
+                                    <h3>Progress personalizado</h3>
+                                    <p>85% completado</p>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill gradient-blue" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <div class="circular-charts">
+                                    <div class="circle-chart blue" data-percent="85">
+                                        <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="circle-chart purple" data-percent="75">
+                                        <svg viewBox="0 0 36 36" class="circular-chart purple">
+                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <span>75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card recommended-courses">
+                                <h2 class="card-title">Cursos recomendados</h2>
+                                <div class="course-list">
+                                    <div class="course-item">
+                                        <div class="course-header">
+                                            <div class="course-icon blue-bg"><i class="ph ph-virus"></i></div>
+                                            <div class="course-details">
+                                                <h4>Oncología</h4><p>85% completado</p>
+                                                <div class="progress-bar-container sm"><div class="progress-bar-fill blue" style="width: 85%;"></div></div>
+                                            </div>
+                                            <i class="ph ph-caret-right chevron"></i>
+                                        </div>
+                                        <div class="course-body">
+                                            <p>Módulo 1: Introducción completado.</p><p>Módulo 2: Tratamientos (en curso).</p>
+                                            <button class="btn-primary" style="margin-top: 8px; font-size: 11px;">Continuar</button>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="course-item">
+                                        <div class="course-header">
+                                            <div class="course-icon purple-bg"><i class="ph ph-dna"></i></div>
+                                            <div class="course-details">
+                                                <h4>Hematología</h4><p>85% completado</p>
+                                                <div class="progress-bar-container sm"><div class="progress-bar-fill purple" style="width: 85%;"></div></div>
+                                            </div>
+                                            <i class="ph ph-caret-right chevron"></i>
+                                        </div>
+                                        <div class="course-body">
+                                            <p>Módulo 1: Conceptos básicos.</p>
+                                            <button class="btn-primary" style="margin-top: 8px; font-size: 11px;">Continuar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Column -->
+                        <div class="col-middle">
+                            <div class="middle-top-row">
+                                <div class="card connect-labs">
+                                    <div class="card-header"><h2 class="card-title">Connect Labs</h2></div>
+                                    <div class="lab-video-container">
+                                        <img src="file:///C:/Users/monst/.gemini/antigravity/brain/89992538-8777-4d93-a651-e036938b153f/lab_simulator_1784930341610.jpg" alt="Lab Video" class="lab-img interactive-bg">
+                                        <div class="video-overlay">
+                                            <h3>Interactivo Clínico the<br>Case Simulator</h3>
+                                            <button class="btn-primary pulse-btn" onclick="alert('Abriendo Simulador Avanzado...')">Simulador Avanzado</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card care-clips">
+                                    <div class="card-header clips-header">
+                                        <h2 class="card-title">Care Clips</h2>
+                                        <div class="carousel-nav"><button class="nav-btn"><i class="ph ph-caret-left"></i></button><button class="nav-btn"><i class="ph ph-caret-right"></i></button></div>
+                                    </div>
+                                    <div class="clips-container">
+                                        <div class="clip" data-title="Diagnóstica de 2 min" data-time="0:00" data-end="-2:00">
+                                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Doc 1">
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Diagnóstica de 2 min</span></div>
+                                        </div>
+                                        <div class="clip active" data-title="Charla KOL" data-time="0:00" data-end="-0:30">
+                                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Doc 2">
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Charla KOL</span></div>
+                                        </div>
+                                        <div class="clip" data-title="Terapia Celular en Sm..." data-time="0:00" data-end="-5:15">
+                                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Cells">
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Terapia Celular en Sm...</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="video-controls">
+                                        <i class="ph-fill ph-play play-main"></i>
+                                        <span class="time">0:00</span><div class="scrub-bar"><div class="scrub-fill"></div><div class="scrub-thumb"></div></div><span class="time">-0:30</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="middle-bottom-row">
+                                <div class="card resource-vault">
+                                    <div class="card-header vault-header"><h2 class="card-title">Resource Vault</h2><i class="ph ph-download-simple download-icon-header"></i></div>
+                                    <div class="vault-tags">
+                                        <span class="tag active">Guías de Oncología</span><span class="tag">Interactiva del Paciente</span><span class="tag">Descarga a...</span>
+                                    </div>
+                                    <div class="resource-list">
+                                        <div class="resource-item">
+                                            <div class="resource-icon red"><i class="ph-fill ph-file-text"></i></div>
+                                            <span class="resource-name">Guías de Oncología</span><button class="btn-download"><i class="ph ph-download-simple"></i></button>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="resource-item">
+                                            <div class="resource-icon orange"><i class="ph-fill ph-file-arrow-down"></i></div>
+                                            <span class="resource-name">Infografía del Paciente</span><button class="btn-download"><i class="ph ph-download-simple"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card care-challenges">
+                                    <div class="card-header"><h2 class="card-title">Care Challenges</h2></div>
+                                    <div class="leaderboard-section">
+                                        <h3 class="section-subtitle">Leaderboard</h3>
+                                        <div class="podium">
+                                            <div class="podium-item second"><span class="rank-num">2</span><div class="crown silver-crown"><i class="ph-fill ph-crown"></i></div></div>
+                                            <div class="podium-item first"><div class="first-circle"><div class="dots-circle"></div><span class="rank-num">1</span></div></div>
+                                            <div class="podium-item third"><span class="rank-num">3</span><div class="crown bronze-crown"><i class="ph-fill ph-crown"></i></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="trivia-section">
+                                        <div class="trivia-text"><h3 class="section-subtitle">Diria trivia</h3><p>Todos cona el dias</p></div>
+                                        <div class="trivia-icon-box"><i class="ph ph-chart-line-up"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-right">
+                            <div class="card care-points">
+                                <div class="card-header"><h2 class="card-title">Pfizer Care Points</h2></div>
+                                <div class="points-total">
+                                    <span class="big-number">350</span><span class="points-text">Puntos<br>Pfizer Care</span>
+                                </div>
+                                <div class="badges-row">
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/5406/5406792.png" alt="Badge 1"><span>Intermedio<br>Avanzada</span></div>
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/5406/5406792.png" alt="Badge 2"><span>Innocasatapa<br>Avanzada</span></div>
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/3176/3176294.png" alt="Badge 3"><span>Oela<br>Chofeplon</span></div>
+                                </div>
+                                <div class="reward-points">
+                                    <h3 class="section-subtitle">Puntos para Recompensa</h3>
+                                    <div class="gauge-container">
+                                        <svg viewBox="0 0 100 50" class="gauge">
+                                            <path class="gauge-bg" d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#e6eaf0" stroke-width="8" stroke-linecap="round"/>
+                                            <path class="gauge-fill" d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#0033a0" stroke-width="8" stroke-linecap="round" stroke-dasharray="110" stroke-dashoffset="15"/>
+                                        </svg>
+                                        <div class="gauge-text"><span class="gauge-value">350</span><span class="gauge-label">Puntos para<br>Recompensa</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card topics-reinforce">
+                                <div class="card-header"><h2 class="card-title">Temas a Reforzar</h2></div>
+                                <div class="target-icon-container"><img src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="Target" class="target-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: CARE CLIPS -->
+                <div id="view-clips" class="view-section" style="display: none;">
+                    <div class="card view-clips-card">
+                        <div class="video-player-container">
+                            <!-- Real HTML5 Video element with a placeholder video -->
+                            <video id="main-video-player" controls poster="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                Tu navegador no soporta HTML video.
+                            </video>
+                            <div class="video-info-overlay">
+                                <h2>Charla KOL: Avances en Tratamientos Oncológicos</h2>
+                                <p>Dr. Carlos Ruiz | Pfizer Academy Especialistas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="video-playlist-section">
+                            <h3>Siguientes en la lista</h3>
+                            <div class="playlist-grid">
+                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Diagnóstico Temprano', 'Dra. Ana López')">
+                                    <div class="thumb-container">
+                                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <span class="duration">02:15</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Diagnóstica de 2 min</h4>
+                                        <p>Serie rápida de aprendizaje</p>
+                                    </div>
+                                </div>
+                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Terapia Celular', 'Investigador Principal')">
+                                    <div class="thumb-container">
+                                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <span class="duration">05:10</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Terapia Celular en Sm...</h4>
+                                        <p>Avances de laboratorio</p>
+                                    </div>
+                                </div>
+                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Inmunoterapia', 'Dr. Martín')">
+                                    <div class="thumb-container">
+                                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <span class="duration">12:30</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Inmunoterapia Guiada</h4>
+                                        <p>Casos clínicos reales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: RESOURCE VAULT -->
+                <div id="view-vault" class="view-section" style="display: none;">
+                    <div class="card view-vault-card">
+                        <div class="vault-header-area">
+                            <h2>Centro de Recursos y Descargas</h2>
+                            <div class="search-bar">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" placeholder="Buscar guías, infografías, estudios...">
+                            </div>
+                        </div>
+                        
+                        <div class="vault-categories">
+                            <button class="btn-category active">Todos los archivos</button>
+                            <button class="btn-category">Oncología</button>
+                            <button class="btn-category">Hematología</button>
+                            <button class="btn-category">Pacientes</button>
+                        </div>
+
+                        <div class="files-grid">
+                            <!-- File 1 -->
+                            <div class="file-card">
+                                <div class="file-icon pdf"><i class="ph-fill ph-file-pdf"></i></div>
+                                <div class="file-details">
+                                    <h4>Guía Práctica Oncología 2026</h4>
+                                    <p>Actualizado: Hace 2 días • 2.4 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando PDF...')">Descargar</button>
+                            </div>
+                            <!-- File 2 -->
+                            <div class="file-card">
+                                <div class="file-icon img"><i class="ph-fill ph-file-image"></i></div>
+                                <div class="file-details">
+                                    <h4>Infografía del Paciente</h4>
+                                    <p>Actualizado: Hace 1 semana • 1.1 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Infografía...')">Descargar</button>
+                            </div>
+                            <!-- File 3 -->
+                            <div class="file-card">
+                                <div class="file-icon doc"><i class="ph-fill ph-file-doc"></i></div>
+                                <div class="file-details">
+                                    <h4>Estudio Clínico Fase 3</h4>
+                                    <p>Actualizado: Hace 1 mes • 4.5 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Documento...')">Descargar</button>
+                            </div>
+                            <!-- File 4 -->
+                            <div class="file-card">
+                                <div class="file-icon video"><i class="ph-fill ph-file-video"></i></div>
+                                <div class="file-details">
+                                    <h4>Presentación Terapia Celular</h4>
+                                    <p>Actualizado: Hace 2 meses • 15 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Video...')">Descargar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: CARE CHALLENGES -->
+                <div id="view-challenges" class="view-section" style="display: none;">
+                    <div class="grid-container challenges-grid">
+                        <div class="col-left">
+                            <div class="card my-stats-card">
+                                <h2>Mis Estadísticas</h2>
+                                <div class="stats-row">
+                                    <div class="stat-box">
+                                        <i class="ph-fill ph-star"></i>
+                                        <span>Nivel</span>
+                                        <strong>Diamante</strong>
+                                    </div>
+                                    <div class="stat-box">
+                                        <i class="ph-fill ph-fire"></i>
+                                        <span>Racha</span>
+                                        <strong>12 Días</strong>
+                                    </div>
+                                </div>
+                                <h3 style="margin-top: 20px;">Retos Activos</h3>
+                                <div class="challenge-item">
+                                    <div class="challenge-info">
+                                        <h4>Trivia Diaria: Hematología</h4>
+                                        <p>Completa 5 preguntas sin error</p>
+                                    </div>
+                                    <button class="btn-primary btn-sm" onclick="alert('Iniciando Trivia...')">Jugar</button>
+                                </div>
+                                <div class="challenge-item">
+                                    <div class="challenge-info">
+                                        <h4>Ver 3 Care Clips</h4>
+                                        <p>Progreso: 1/3</p>
+                                    </div>
+                                    <button class="btn-primary btn-sm btn-outline">Ir a Clips</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-middle" style="grid-column: span 2;">
+                            <div class="card leaderboard-card">
+                                <div class="card-header">
+                                    <h2>Tabla de Clasificación Nacional</h2>
+                                    <select class="custom-select">
+                                        <option>Este Mes</option>
+                                        <option>Esta Semana</option>
+                                    </select>
+                                </div>
+                                <div class="leaderboard-table">
+                                    <div class="lb-row lb-header">
+                                        <div class="lb-rank">Puesto</div>
+                                        <div class="lb-user">Doctor(a)</div>
+                                        <div class="lb-points">Puntos</div>
+                                    </div>
+                                    <div class="lb-row lb-gold">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 1</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=11" alt="avatar"> Dra. Silvia Torres</div>
+                                        <div class="lb-points">1,250</div>
+                                    </div>
+                                    <div class="lb-row lb-silver">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 2</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=47" alt="avatar"> Dra. Paula Cabrera</div>
+                                        <div class="lb-points">1,120</div>
+                                    </div>
+                                    <div class="lb-row lb-bronze">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 3</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=33" alt="avatar"> Dr. Luis Mendez</div>
+                                        <div class="lb-points">980</div>
+                                    </div>
+                                    <div class="lb-row">
+                                        <div class="lb-rank">4</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=12" alt="avatar"> Dr. Roberto Gómez</div>
+                                        <div class="lb-points">850</div>
+                                    </div>
+                                    <div class="lb-row">
+                                        <div class="lb-rank">5</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=5" alt="avatar"> Dra. Ana Ríos</div>
+                                        <div class="lb-points">700</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
