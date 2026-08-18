@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pfizer CARE Connect Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ========= PANTALLA INICIO ========= -->
+<div id="screen-start" class="ui-screen">
+    <div class="start-logo">
+        <div class="logo-line">
+            <span class="l-pfizer">Pfizer</span>
+            <span class="l-care"> CARE</span>
+            <span class="l-connect"> Connect</span>
+        </div>
+        <div class="l-academy">CARE Connect Academy</div>
+    </div>
+    <h1 class="start-title">¡Turno del Dictaminador!</h1>
+    <p class="start-sub">Elige a tu personaje, camina por la oficina y ¡toma las decisiones correctas!</p>
+
+    <div class="char-grid" id="char-grid">
+        <div class="char-option selected" data-idx="0">
+            <canvas class="char-canvas" width="100" height="110" data-idx="0"></canvas>
+            <span>Gotita Azul</span>
+        </div>
+        <div class="char-option" data-idx="1">
+            <canvas class="char-canvas" width="100" height="110" data-idx="1"></canvas>
+            <span>Gotita Dorada</span>
+        </div>
+        <div class="char-option" data-idx="2">
+            <canvas class="char-canvas" width="100" height="110" data-idx="2"></canvas>
+            <span>Gotita Rosa</span>
+        </div>
+        <div class="char-option" data-idx="3">
+            <canvas class="char-canvas" width="100" height="110" data-idx="3"></canvas>
+            <span>Gotita Verde</span>
+        </div>
+    </div>
+
+    <div class="controls-hint">
+        <span>⬆⬇⬅➡ Teclado</span>
+        <span>· WASD ·</span>
+        <span>🖱️ Clic para mover</span>
+    </div>
+    <button class="btn-main" id="btn-start">¡Empezar Turno! 🏃</button>
+</div>
+
+<!-- ========= CANVAS DEL JUEGO ========= -->
+<canvas id="game-canvas"></canvas>
+
+<!-- ========= HUD ========= -->
+<div id="hud" class="hidden">
+    <div class="hud-left">
+        <div class="hud-box">
+            <span class="hud-label">CASOS</span>
+            <span class="hud-value" id="hud-score">0</span>
+        </div>
+    </div>
+    <div class="hud-center">
+        <div class="logo-small">Pfizer CARE <span>Connect</span></div>
+    </div>
+    <div class="hud-right">
+        <div class="hud-box timer-box" id="timer-box">
+            <span class="hud-label">TIEMPO</span>
+            <span class="hud-value" id="hud-timer">--</span>
+        </div>
+    </div>
+</div>
+
+<!-- ========= MODAL CASO ========= -->
+<div id="modal-case" class="modal-bg hidden">
+    <div class="modal-card case-card-ui">
+        <div class="modal-top-bar">
+            <span class="badge-new">📋 NUEVO EXPEDIENTE</span>
+        </div>
+        <div class="patient-avatar-wrap">
+            <canvas id="modal-patient-canvas" width="90" height="100"></canvas>
+        </div>
+        <h2 class="modal-patient-name" id="modal-name">Cargando...</h2>
+        <div class="modal-row"><span class="modal-label">Síntomas:</span><span id="modal-symptoms">...</span></div>
+        <div class="modal-evidence">
+            <div class="modal-label">📁 Evidencia:</div>
+            <div id="modal-evidence">...</div>
+        </div>
+        <p class="modal-hint">Toma el caso y corre hacia la <strong>puerta correcta</strong> ⏱️</p>
+        <button class="btn-main btn-sm" id="btn-take">¡Tomar Expediente!</button>
+    </div>
+</div>
+
+<!-- ========= GAME OVER ========= -->
+<div id="screen-gameover" class="ui-screen hidden gameover-screen">
+    <div class="go-char-wrap">
+        <canvas id="go-char-canvas" width="130" height="145"></canvas>
+    </div>
+    <h1 class="go-title" id="go-title">¡ERROR FATAL!</h1>
+    <p class="go-reason" id="go-reason">...</p>
+    <div class="go-score-box">
+        Casos resueltos: <strong id="go-score">0</strong>
+    </div>
+    <button class="btn-main btn-retry" id="btn-retry">🔄 Reintentar</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

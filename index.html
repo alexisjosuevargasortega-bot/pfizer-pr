@@ -149,22 +149,22 @@
                                         <div class="carousel-nav"><button class="nav-btn"><i class="ph ph-caret-left"></i></button><button class="nav-btn"><i class="ph ph-caret-right"></i></button></div>
                                     </div>
                                     <div class="clips-container">
-                                        <div class="clip" data-title="Diagnóstica de 2 min" data-time="0:00" data-end="-2:00">
-                                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Doc 1">
+                                        <div class="clip" data-title="Diagnóstica de 2 min" data-time="0:00" data-end="-2:15">
+                                            <video src="videos/doc2.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
                                             <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Diagnóstica de 2 min</span></div>
                                         </div>
-                                        <div class="clip active" data-title="Charla KOL" data-time="0:00" data-end="-0:30">
-                                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Doc 2">
-                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Charla KOL</span></div>
-                                        </div>
-                                        <div class="clip" data-title="Terapia Celular en Sm..." data-time="0:00" data-end="-5:15">
-                                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=60" alt="Cells">
+                                        <div class="clip active" data-title="Terapia Celular" data-time="0:00" data-end="-5:10">
+                                            <video src="videos/cel.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
                                             <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Terapia Celular en Sm...</span></div>
+                                        </div>
+                                        <div class="clip" data-title="Inmunoterapia" data-time="0:00" data-end="-12:30">
+                                            <video src="videos/lamp.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Inmunoterapia Guiada</span></div>
                                         </div>
                                     </div>
                                     <div class="video-controls">
                                         <i class="ph-fill ph-play play-main"></i>
-                                        <span class="time">0:00</span><div class="scrub-bar"><div class="scrub-fill"></div><div class="scrub-thumb"></div></div><span class="time">-0:30</span>
+                                        <span class="time">0:00</span><div class="scrub-bar"><div class="scrub-fill"></div><div class="scrub-thumb"></div></div><span class="time">-5:10</span>
                                     </div>
                                 </div>
                             </div>
@@ -197,9 +197,12 @@
                                         </div>
                                     </div>
                                     <div class="divider"></div>
-                                    <div class="trivia-section">
-                                        <div class="trivia-text"><h3 class="section-subtitle">Diria trivia</h3><p>Todos cona el dias</p></div>
-                                        <div class="trivia-icon-box"><i class="ph ph-chart-line-up"></i></div>
+                                    <div class="trivia-card-container" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-top: 16px;">
+                                        <h3 style="font-size: 14px; font-weight: 700; color: var(--pfizer-blue); margin-bottom: 4px;">Trivia Diaria:<br>Hematología</h3>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+                                            <p style="font-size: 13px; color: var(--text-primary); line-height: 1.3; flex: 1; margin: 0;">Completa 5<br>preguntas sin<br>error</p>
+                                            <button onclick="openTriviaModal()" style="background: var(--pfizer-blue); color: white; border: none; border-radius: 20px; padding: 8px 24px; font-weight: 700; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(247,157,30,0.3);">Jugar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -240,9 +243,8 @@
                 <div id="view-clips" class="view-section" style="display: none;">
                     <div class="card view-clips-card">
                         <div class="video-player-container">
-                            <!-- Real HTML5 Video element with a placeholder video -->
                             <video id="main-video-player" controls poster="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                <source src="videos/doc1.mp4" type="video/mp4">
                                 Tu navegador no soporta HTML video.
                             </video>
                             <div class="video-info-overlay">
@@ -252,11 +254,11 @@
                         </div>
                         
                         <div class="video-playlist-section">
-                            <h3>Siguientes en la lista</h3>
+                            <h3 style="margin-top: 20px; margin-bottom: 15px; color: #003893; font-size: 1.2rem;">Siguientes en la lista</h3>
                             <div class="playlist-grid">
-                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Diagnóstico Temprano', 'Dra. Ana López')">
+                                <div class="playlist-item" onclick="playVideo('videos/doc2.mp4', 'Diagnóstica de 2 min', 'Serie rápida de aprendizaje')">
                                     <div class="thumb-container">
-                                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <video src="videos/doc2.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
                                         <span class="duration">02:15</span>
                                     </div>
                                     <div class="thumb-info">
@@ -264,9 +266,9 @@
                                         <p>Serie rápida de aprendizaje</p>
                                     </div>
                                 </div>
-                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Terapia Celular', 'Investigador Principal')">
+                                <div class="playlist-item" onclick="playVideo('videos/cel.mp4', 'Terapia Celular en Sm...', 'Avances de laboratorio')">
                                     <div class="thumb-container">
-                                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <video src="videos/cel.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
                                         <span class="duration">05:10</span>
                                     </div>
                                     <div class="thumb-info">
@@ -274,9 +276,9 @@
                                         <p>Avances de laboratorio</p>
                                     </div>
                                 </div>
-                                <div class="playlist-item" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Inmunoterapia', 'Dr. Martín')">
+                                <div class="playlist-item" onclick="playVideo('videos/lamp.mp4', 'Inmunoterapia Guiada', 'Casos clínicos reales')">
                                     <div class="thumb-container">
-                                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=60" alt="Video thumb">
+                                        <video src="videos/lamp.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
                                         <span class="duration">12:30</span>
                                     </div>
                                     <div class="thumb-info">
@@ -372,14 +374,24 @@
                                         <h4>Trivia Diaria: Hematología</h4>
                                         <p>Completa 5 preguntas sin error</p>
                                     </div>
-                                    <button class="btn-primary btn-sm" onclick="alert('Iniciando Trivia...')">Jugar</button>
+                                    <button class="btn-primary btn-sm" onclick="openTriviaModal()">Jugar</button>
                                 </div>
                                 <div class="challenge-item">
                                     <div class="challenge-info">
                                         <h4>Ver 3 Care Clips</h4>
                                         <p>Progreso: 1/3</p>
                                     </div>
-                                    <button class="btn-primary btn-sm btn-outline">Ir a Clips</button>
+                                    <button class="btn-primary btn-sm btn-outline" onclick="document.querySelector('[data-target=view-clips]').click()">Ir a Clips</button>
+                                </div>
+                                <h3 style="margin-top: 20px;">Aprobar o Morir - Dictaminador Edition</h3>
+                                <div class="challenge-item game-banner" onclick="openGameModal()" style="display:flex; flex-direction:row; align-items:center; padding:16px; background:linear-gradient(135deg, #003893, #4a90d9); border-radius:12px; margin-top:10px; border:none;">
+                                    <div style="flex:1;">
+                                        <h4 style="color:white; font-size:15px; margin-bottom:4px;">¡Salva a las gotitas!</h4>
+                                        <p style="color:#cce4fc; font-size:12px; line-height:1.2;">Expande y juega en pantalla completa.</p>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.2); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; color:white; font-size:24px;">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -432,6 +444,170 @@
             </main>
         </div>
     </div>
+    
+    <!-- GAME MODAL -->
+    <div id="game-modal" class="game-modal">
+        <div class="game-modal-content">
+            <button class="close-game-btn" onclick="closeGameModal()"><i class="ph ph-x"></i></button>
+            <iframe id="game-iframe" src="" class="game-iframe"></iframe>
+        </div>
+    </div>
+
+    <!-- TRIVIA MODAL -->
+    <div id="trivia-modal" class="game-modal">
+        <div class="game-modal-content" style="background: var(--bg-gradient); padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <button class="close-game-btn" onclick="closeTriviaModal()"><i class="ph ph-x"></i></button>
+            
+            <div id="trivia-welcome" style="max-width: 600px;">
+                <h1 style="font-size: 32px; color: var(--text-primary); margin-bottom: 16px;">Trivia: Hematología</h1>
+                <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 32px;">Completa las siguientes 5 preguntas correctamente sin equivocarte para ganar puntos Pfizer Care.</p>
+                <button onclick="startTrivia()" style="background: var(--pfizer-blue); color: white; border: none; padding: 16px 48px; font-size: 18px; font-weight: 800; border-radius: 30px; cursor: pointer; transition: transform 0.2s;">Comenzar Trivia</button>
+            </div>
+
+            <div id="trivia-game" style="display: none; max-width: 600px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 24px; color: var(--text-secondary); font-size: 14px; font-weight: 700;">
+                    <span id="trivia-progress">Pregunta 1 de 5</span>
+                </div>
+                <h2 id="trivia-question" style="font-size: 24px; color: var(--text-primary); margin-bottom: 32px; line-height: 1.4;">¿Cuál es la función principal de los glóbulos rojos?</h2>
+                <div id="trivia-options" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Opciones se inyectan acá -->
+                </div>
+            </div>
+
+            <div id="trivia-result" style="display: none; max-width: 600px;">
+                <i id="trivia-icon" class="ph-fill ph-check-circle" style="font-size: 80px; color: var(--pfizer-light-blue); margin-bottom: 24px;"></i>
+                <h1 id="trivia-result-title" style="font-size: 32px; color: var(--text-primary); margin-bottom: 16px;">¡Excelente!</h1>
+                <p id="trivia-result-desc" style="font-size: 16px; color: var(--text-secondary); margin-bottom: 32px;">Has completado el reto sin errores y has ganado 50 puntos Pfizer Care.</p>
+                <button onclick="closeTriviaModal()" style="background: var(--card-bg); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 12px 32px; font-size: 16px; font-weight: 700; border-radius: 30px; cursor: pointer;">Cerrar y Volver</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        function openGameModal() {
+            document.getElementById('game-modal').classList.add('show');
+            document.getElementById('game-iframe').src = 'game.html';
+        }
+        function closeGameModal() {
+            document.getElementById('game-modal').classList.remove('show');
+            document.getElementById('game-iframe').src = '';
+        }
+
+        // --- Lógica de la Trivia ---
+        const triviaQuestions = [
+            {
+                q: "¿Qué componente de la sangre es responsable de la coagulación?",
+                options: ["Glóbulos Blancos", "Plaquetas", "Plasma", "Glóbulos Rojos"],
+                correct: 1
+            },
+            {
+                q: "¿Qué proteína transporta el oxígeno en los glóbulos rojos?",
+                options: ["Hemoglobina", "Insulina", "Colágeno", "Queratina"],
+                correct: 0
+            },
+            {
+                q: "¿Dónde se producen principalmente las células sanguíneas en los adultos?",
+                options: ["Hígado", "Bazo", "Médula ósea", "Riñones"],
+                correct: 2
+            },
+            {
+                q: "¿Qué tipo de célula sanguínea es clave para la respuesta inmunológica adaptativa?",
+                options: ["Eritrocito", "Plaqueta", "Linfocito", "Neutrófilo"],
+                correct: 2
+            },
+            {
+                q: "¿Cuál es el tiempo de vida promedio de un eritrocito humano?",
+                options: ["10 días", "30 días", "120 días", "1 año"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function openTriviaModal() {
+            document.getElementById('trivia-modal').classList.add('show');
+            document.getElementById('trivia-welcome').style.display = 'block';
+            document.getElementById('trivia-game').style.display = 'none';
+            document.getElementById('trivia-result').style.display = 'none';
+            currentQuestion = 0;
+        }
+
+        function closeTriviaModal() {
+            document.getElementById('trivia-modal').classList.remove('show');
+        }
+
+        function startTrivia() {
+            document.getElementById('trivia-welcome').style.display = 'none';
+            document.getElementById('trivia-game').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = triviaQuestions[currentQuestion];
+            document.getElementById('trivia-progress').innerText = `Pregunta ${currentQuestion + 1} de 5`;
+            document.getElementById('trivia-question').innerText = q.q;
+            
+            const optionsContainer = document.getElementById('trivia-options');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.innerText = opt;
+                btn.style.cssText = `
+                    background: var(--card-bg);
+                    color: var(--text-primary);
+                    border: 1px solid var(--border-color);
+                    padding: 16px 24px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    text-align: left;
+                    transition: all 0.2s ease;
+                `;
+                btn.onmouseover = () => { btn.style.background = 'rgba(255,255,255,0.1)'; };
+                btn.onmouseout = () => { btn.style.background = 'var(--card-bg)'; };
+                btn.onclick = () => answerQuestion(index);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function answerQuestion(index) {
+            const isCorrect = (index === triviaQuestions[currentQuestion].correct);
+            
+            if (isCorrect) {
+                currentQuestion++;
+                if (currentQuestion >= triviaQuestions.length) {
+                    showResult(true);
+                } else {
+                    showQuestion();
+                }
+            } else {
+                showResult(false);
+            }
+        }
+
+        function showResult(success) {
+            document.getElementById('trivia-game').style.display = 'none';
+            document.getElementById('trivia-result').style.display = 'block';
+            
+            const icon = document.getElementById('trivia-icon');
+            const title = document.getElementById('trivia-result-title');
+            const desc = document.getElementById('trivia-result-desc');
+            
+            if (success) {
+                icon.className = 'ph-fill ph-check-circle';
+                icon.style.color = 'var(--pfizer-light-blue)';
+                title.innerText = '¡Reto Completado!';
+                desc.innerText = 'Has respondido las 5 preguntas sin error. ¡Ganaste 50 Puntos Pfizer Care!';
+            } else {
+                icon.className = 'ph-fill ph-x-circle';
+                icon.style.color = 'var(--pfizer-purple)';
+                title.innerText = '¡Ups! Respuesta Incorrecta';
+                desc.innerText = 'No lograste responder las 5 preguntas sin error. Vuelve a intentarlo mañana.';
+            }
+        }
+    </script>
 </body>
 </html>

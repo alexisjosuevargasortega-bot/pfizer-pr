@@ -1,0 +1,350 @@
+/* =============================
+   PFIZER CARE CONNECT ACADEMY
+   UI STYLESHEET - HD Game
+============================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #0a0e1a;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* =======================
+   CANVAS
+======================== */
+#game-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    display: none;
+    cursor: crosshair;
+    image-rendering: crisp-edges;
+}
+
+/* =======================
+   UI SCREENS (overlays)
+======================== */
+.ui-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+    background: linear-gradient(145deg, #0d1b3e 0%, #122a6e 50%, #0b1833 100%);
+}
+.ui-screen.hidden { display: none !important; }
+
+/* =======================
+   START SCREEN
+======================== */
+.start-logo {
+    text-align: center;
+    margin-bottom: 6px;
+}
+.logo-line {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+}
+.l-pfizer  { color: #fff; font-weight: 900; }
+.l-care    { color: #90beff; font-weight: 700; }
+.l-connect { color: #f0c040; font-weight: 700; }
+.l-academy {
+    font-size: 0.75rem;
+    color: #90beff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.start-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    text-shadow: 0 0 30px rgba(100,160,255,0.8), 0 4px 8px rgba(0,0,0,0.5);
+    margin: 10px 0 5px;
+}
+.start-sub {
+    color: #aac8ee;
+    font-size: 0.95rem;
+    max-width: 480px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.char-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.char-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border: 3px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 12px 10px 10px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+    transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem;
+    color: #c8deff;
+}
+.char-option:hover {
+    transform: scale(1.05);
+    border-color: rgba(100,180,255,0.5);
+}
+.char-option.selected {
+    border-color: #48dbfb;
+    background: rgba(72,219,251,0.15);
+    box-shadow: 0 0 25px rgba(72,219,251,0.4), 0 0 60px rgba(72,219,251,0.1);
+    transform: scale(1.1);
+    color: #fff;
+}
+.char-canvas { display: block; }
+
+.controls-hint {
+    display: flex;
+    gap: 12px;
+    color: #6699cc;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* =======================
+   BUTTONS
+======================== */
+.btn-main {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #003893, #0057cc);
+    color: #fff;
+    box-shadow: 0 6px 25px rgba(0,80,200,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+}
+.btn-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s;
+}
+.btn-main:hover::before { left: 150%; }
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(0,80,200,0.6), inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-main:active { transform: translateY(1px); box-shadow: 0 3px 12px rgba(0,80,200,0.4); }
+
+.btn-sm { font-size: 1rem; padding: 10px 28px; }
+.btn-retry { background: linear-gradient(135deg, #c79222, #e0a800); box-shadow: 0 6px 25px rgba(200,140,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2); }
+
+/* =======================
+   HUD
+======================== */
+#hud {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 50;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+    pointer-events: none;
+}
+#hud.hidden { display: none !important; }
+
+.hud-box {
+    background: rgba(0,0,0,0.55);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 6px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    min-width: 80px;
+}
+.hud-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #7aaddd;
+    text-transform: uppercase;
+}
+.hud-value {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1.1;
+}
+.timer-box { border-color: rgba(255,255,255,0.15); }
+.timer-box.urgent {
+    border-color: #ff4444;
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    animation: urgentFlash 0.5s infinite alternate;
+}
+@keyframes urgentFlash {
+    from { background: rgba(0,0,0,0.55); }
+    to   { background: rgba(180,0,0,0.4); }
+}
+
+.hud-center .logo-small {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+}
+.hud-center .logo-small span { color: #f0c040; }
+
+/* =======================
+   MODAL CASE
+======================== */
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,15,40,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    backdrop-filter: blur(6px);
+}
+.modal-bg.hidden { display: none !important; }
+
+.modal-card {
+    background: linear-gradient(160deg, #0f2050, #0a1840);
+    border: 2px solid rgba(100,160,255,0.3);
+    border-radius: 24px;
+    padding: 28px 32px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(0,80,200,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.modal-top-bar { margin-bottom: 10px; }
+.badge-new {
+    background: linear-gradient(135deg, #003893, #0057cc);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.8rem;
+    padding: 5px 18px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 12px rgba(0,80,200,0.4);
+}
+
+.patient-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 6px;
+}
+
+.modal-patient-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #48dbfb;
+    text-shadow: 0 0 20px rgba(72,219,251,0.5);
+    margin-bottom: 12px;
+}
+
+.modal-row {
+    font-size: 0.95rem;
+    color: #aac8ee;
+    margin-bottom: 6px;
+    text-align: left;
+}
+.modal-label {
+    font-weight: 900;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.modal-evidence {
+    background: rgba(0,0,0,0.3);
+    border: 1px dashed rgba(240,192,64,0.4);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 12px 0;
+    text-align: left;
+    color: #eee;
+    font-size: 0.95rem;
+}
+.modal-evidence .modal-label { color: #f0c040; display: block; margin-bottom: 4px; }
+
+.modal-hint {
+    font-size: 0.85rem;
+    color: #7a99bb;
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+/* =======================
+   GAME OVER
+======================== */
+.gameover-screen {
+    background: radial-gradient(ellipse at center, #1a0a0a 0%, #0a0510 100%);
+}
+.go-char-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    animation: goShake 0.4s infinite;
+}
+@keyframes goShake {
+    0%  { transform: translate(2px, 0) rotate(2deg); }
+    25% { transform: translate(-2px, 1px) rotate(-2deg); }
+    50% { transform: translate(2px, -1px) rotate(1deg); }
+    75% { transform: translate(-2px, 0) rotate(-1deg); }
+    100%{ transform: translate(1px, 1px) rotate(2deg); }
+}
+
+.go-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ff4444;
+    text-shadow: 0 0 40px rgba(255,50,50,0.7), 0 4px 8px rgba(0,0,0,0.5);
+    margin-bottom: 12px;
+}
+.go-reason {
+    color: #d0bbbb;
+    font-size: 1rem;
+    max-width: 400px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+.go-score-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 10px 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: #aac8ee;
+    margin-bottom: 20px;
+}
+.go-score-box strong { color: #f0c040; font-size: 1.5rem; }
