@@ -4,244 +4,610 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pfizer CARE Connect Academy</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
+    <div class="dashboard-wrapper">
+        <div class="dashboard-container">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    <img src="logopng.png" alt="Pfizer Logo" class="pfizer-logo">
+                    <div class="logo-text">
+                        <span class="logo-title">CARE Connect</span>
+                        <span class="logo-subtitle">Academy</span>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="#" class="active" data-target="view-academy">C.A.R.E. Connect Academy</a>
+                    <a href="#" data-target="view-clips">Care Clips</a>
+                    <a href="#" data-target="view-vault">Resource Vault</a>
+                    <a href="#" data-target="view-challenges">Care Challenges</a>
+                </nav>
+                <div class="header-actions">
+                    <i class="ph ph-chat-centered-dots action-icon" id="btn-chat"></i>
+                    <div class="notification" id="btn-notification">
+                        <i class="ph ph-bell action-icon"></i>
+                        <span class="badge">2</span>
+                        <div class="dropdown-menu" id="notif-dropdown">
+                            <div class="dropdown-header">Notificaciones</div>
+                            <div class="dropdown-item">Nueva guía subida</div>
+                            <div class="dropdown-item">Actualización de curso</div>
+                        </div>
+                    </div>
+                    <div class="profile-menu" id="btn-profile">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Profile" class="profile-pic">
+                        <div class="dropdown-menu" id="profile-dropdown">
+                            <div class="dropdown-item">Mi Perfil</div>
+                            <div class="dropdown-item">Configuración</div>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item">Cerrar Sesión</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-<!-- ========= PANTALLA INICIO / CUSTOMIZER ========= -->
-<div id="screen-start" class="ui-screen customizer-screen">
-    <!-- Header: Logo, Name & Title, Stats -->
-    <header class="customizer-header">
-        <div class="header-logo-badge">
-            <div class="logo-pfizer-mini">Pfizer</div>
-            <div class="logo-care-mini">CARE Connect</div>
+            <!-- Welcome Section (Visible across views, or can be dynamic) -->
+            <section class="welcome-section" id="welcome-section">
+                <div class="welcome-avatar-wrapper">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Dra. Paula Cabrera" class="large-profile-pic">
+                </div>
+                <div class="welcome-text">
+                    <h1 id="welcome-title">¡Bienvenida, Dra. Paula Cabrera!</h1>
+                    <p id="welcome-subtitle">Tu Hub de C.A.R.E. Connect</p>
+                </div>
+            </section>
+
+            <!-- Main Content Area -->
+            <main class="content-area">
+                
+                <!-- VIEW: ACADEMY (DASHBOARD ORIGINAL) -->
+                <div id="view-academy" class="view-section active">
+                    <div class="grid-container">
+                        <!-- Left Column -->
+                        <div class="col-left">
+                            <div class="card academy-progress-card">
+                                <h2 class="card-title">C.A.R.E. Connect Academy</h2>
+                                <div class="progress-info">
+                                    <h3>Progress personalizado</h3>
+                                    <p>85% completado</p>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill gradient-blue" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <div class="circular-charts">
+                                    <div class="circle-chart blue" data-percent="85">
+                                        <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="circle-chart purple" data-percent="75">
+                                        <svg viewBox="0 0 36 36" class="circular-chart purple">
+                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        </svg>
+                                        <span>75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card recommended-courses">
+                                <h2 class="card-title">Cursos recomendados</h2>
+                                <div class="course-list">
+                                    <div class="course-item">
+                                        <div class="course-header">
+                                            <div class="course-icon blue-bg"><i class="ph ph-virus"></i></div>
+                                            <div class="course-details">
+                                                <h4>Oncología</h4><p>85% completado</p>
+                                                <div class="progress-bar-container sm"><div class="progress-bar-fill blue" style="width: 85%;"></div></div>
+                                            </div>
+                                            <i class="ph ph-caret-right chevron"></i>
+                                        </div>
+                                        <div class="course-body">
+                                            <p>Módulo 1: Introducción completado.</p><p>Módulo 2: Tratamientos (en curso).</p>
+                                            <button class="btn-primary" style="margin-top: 8px; font-size: 11px;">Continuar</button>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="course-item">
+                                        <div class="course-header">
+                                            <div class="course-icon purple-bg"><i class="ph ph-dna"></i></div>
+                                            <div class="course-details">
+                                                <h4>Hematología</h4><p>85% completado</p>
+                                                <div class="progress-bar-container sm"><div class="progress-bar-fill purple" style="width: 85%;"></div></div>
+                                            </div>
+                                            <i class="ph ph-caret-right chevron"></i>
+                                        </div>
+                                        <div class="course-body">
+                                            <p>Módulo 1: Conceptos básicos.</p>
+                                            <button class="btn-primary" style="margin-top: 8px; font-size: 11px;">Continuar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Column -->
+                        <div class="col-middle">
+                            <div class="middle-top-row">
+                                <div class="card connect-labs">
+                                    <div class="card-header"><h2 class="card-title">Connect Labs</h2></div>
+                                    <div class="lab-video-container">
+                                        <img src="lab_simulator.jpg" alt="Lab Video" class="lab-img interactive-bg">
+                                        <div class="video-overlay">
+                                            <h3>Interactivo Clínico the<br>Case Simulator</h3>
+                                            <button class="btn-primary pulse-btn" onclick="alert('Abriendo Simulador Avanzado...')">Simulador Avanzado</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card care-clips">
+                                    <div class="card-header clips-header">
+                                        <h2 class="card-title">Care Clips</h2>
+                                        <div class="carousel-nav"><button class="nav-btn"><i class="ph ph-caret-left"></i></button><button class="nav-btn"><i class="ph ph-caret-right"></i></button></div>
+                                    </div>
+                                    <div class="clips-container">
+                                        <div class="clip" data-title="Diagnóstica de 2 min" data-time="0:00" data-end="-2:15">
+                                            <video src="videos/doc2.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Diagnóstica de 2 min</span></div>
+                                        </div>
+                                        <div class="clip active" data-title="Terapia Celular" data-time="0:00" data-end="-5:10">
+                                            <video src="videos/cel.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Terapia Celular en Sm...</span></div>
+                                        </div>
+                                        <div class="clip" data-title="Inmunoterapia" data-time="0:00" data-end="-12:30">
+                                            <video src="videos/lamp.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                                            <div class="clip-overlay"><div class="play-btn-small"><i class="ph-fill ph-play"></i></div><span>Inmunoterapia Guiada</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="video-controls">
+                                        <i class="ph-fill ph-play play-main"></i>
+                                        <span class="time">0:00</span><div class="scrub-bar"><div class="scrub-fill"></div><div class="scrub-thumb"></div></div><span class="time">-5:10</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="middle-bottom-row">
+                                <div class="card resource-vault">
+                                    <div class="card-header vault-header"><h2 class="card-title">Resource Vault</h2><i class="ph ph-download-simple download-icon-header"></i></div>
+                                    <div class="vault-tags">
+                                        <span class="tag active">Guías de Oncología</span><span class="tag">Interactiva del Paciente</span><span class="tag">Descarga a...</span>
+                                    </div>
+                                    <div class="resource-list">
+                                        <div class="resource-item">
+                                            <div class="resource-icon red"><i class="ph-fill ph-file-text"></i></div>
+                                            <span class="resource-name">Guías de Oncología</span><button class="btn-download"><i class="ph ph-download-simple"></i></button>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="resource-item">
+                                            <div class="resource-icon orange"><i class="ph-fill ph-file-arrow-down"></i></div>
+                                            <span class="resource-name">Infografía del Paciente</span><button class="btn-download"><i class="ph ph-download-simple"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card care-challenges">
+                                    <div class="card-header"><h2 class="card-title">Care Challenges</h2></div>
+                                    <div class="leaderboard-section">
+                                        <h3 class="section-subtitle">Leaderboard</h3>
+                                        <div class="podium">
+                                            <div class="podium-item second"><span class="rank-num">2</span><div class="crown silver-crown"><i class="ph-fill ph-crown"></i></div></div>
+                                            <div class="podium-item first"><div class="first-circle"><div class="dots-circle"></div><span class="rank-num">1</span></div></div>
+                                            <div class="podium-item third"><span class="rank-num">3</span><div class="crown bronze-crown"><i class="ph-fill ph-crown"></i></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="trivia-card-container" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-top: 16px;">
+                                        <h3 style="font-size: 14px; font-weight: 700; color: var(--pfizer-blue); margin-bottom: 4px;">Trivia Diaria:<br>Hematología</h3>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+                                            <p style="font-size: 13px; color: var(--text-primary); line-height: 1.3; flex: 1; margin: 0;">Completa 5<br>preguntas sin<br>error</p>
+                                            <button onclick="openTriviaModal()" style="background: var(--pfizer-blue); color: white; border: none; border-radius: 20px; padding: 8px 24px; font-weight: 700; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(247,157,30,0.3);">Jugar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-right">
+                            <div class="card care-points">
+                                <div class="card-header"><h2 class="card-title">Pfizer Care Points</h2></div>
+                                <div class="points-total">
+                                    <span class="big-number">350</span><span class="points-text">Puntos<br>Pfizer Care</span>
+                                </div>
+                                <div class="badges-row">
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/5406/5406792.png" alt="Badge 1"><span>Intermedio<br>Avanzada</span></div>
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/5406/5406792.png" alt="Badge 2"><span>Innocasatapa<br>Avanzada</span></div>
+                                    <div class="badge-item"><img src="https://cdn-icons-png.flaticon.com/512/3176/3176294.png" alt="Badge 3"><span>Oela<br>Chofeplon</span></div>
+                                </div>
+                                <div class="reward-points">
+                                    <h3 class="section-subtitle">Puntos para Recompensa</h3>
+                                    <div class="gauge-container">
+                                        <svg viewBox="0 0 100 50" class="gauge">
+                                            <path class="gauge-bg" d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#e6eaf0" stroke-width="8" stroke-linecap="round"/>
+                                            <path class="gauge-fill" d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#0033a0" stroke-width="8" stroke-linecap="round" stroke-dasharray="110" stroke-dashoffset="15"/>
+                                        </svg>
+                                        <div class="gauge-text"><span class="gauge-value">350</span><span class="gauge-label">Puntos para<br>Recompensa</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card topics-reinforce">
+                                <div class="card-header"><h2 class="card-title">Temas a Reforzar</h2></div>
+                                <div class="target-icon-container"><img src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="Target" class="target-icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: CARE CLIPS -->
+                <div id="view-clips" class="view-section" style="display: none;">
+                    <div class="card view-clips-card">
+                        <div class="video-player-container">
+                            <video id="main-video-player" controls poster="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                                <source src="videos/doc1.mp4" type="video/mp4">
+                                Tu navegador no soporta HTML video.
+                            </video>
+                            <div class="video-info-overlay">
+                                <h2>Charla KOL: Avances en Tratamientos Oncológicos</h2>
+                                <p>Dr. Carlos Ruiz | Pfizer Academy Especialistas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="video-playlist-section">
+                            <h3 style="margin-top: 20px; margin-bottom: 15px; color: #003893; font-size: 1.2rem;">Siguientes en la lista</h3>
+                            <div class="playlist-grid">
+                                <div class="playlist-item" onclick="playVideo('videos/doc2.mp4', 'Diagnóstica de 2 min', 'Serie rápida de aprendizaje')">
+                                    <div class="thumb-container">
+                                        <video src="videos/doc2.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                                        <span class="duration">02:15</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Diagnóstica de 2 min</h4>
+                                        <p>Serie rápida de aprendizaje</p>
+                                    </div>
+                                </div>
+                                <div class="playlist-item" onclick="playVideo('videos/cel.mp4', 'Terapia Celular en Sm...', 'Avances de laboratorio')">
+                                    <div class="thumb-container">
+                                        <video src="videos/cel.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                                        <span class="duration">05:10</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Terapia Celular en Sm...</h4>
+                                        <p>Avances de laboratorio</p>
+                                    </div>
+                                </div>
+                                <div class="playlist-item" onclick="playVideo('videos/lamp.mp4', 'Inmunoterapia Guiada', 'Casos clínicos reales')">
+                                    <div class="thumb-container">
+                                        <video src="videos/lamp.mp4#t=0.5" muted playsinline style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                                        <span class="duration">12:30</span>
+                                    </div>
+                                    <div class="thumb-info">
+                                        <h4>Inmunoterapia Guiada</h4>
+                                        <p>Casos clínicos reales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: RESOURCE VAULT -->
+                <div id="view-vault" class="view-section" style="display: none;">
+                    <div class="card view-vault-card">
+                        <div class="vault-header-area">
+                            <h2>Centro de Recursos y Descargas</h2>
+                            <div class="search-bar">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" placeholder="Buscar guías, infografías, estudios...">
+                            </div>
+                        </div>
+                        
+                        <div class="vault-categories">
+                            <button class="btn-category active">Todos los archivos</button>
+                            <button class="btn-category">Oncología</button>
+                            <button class="btn-category">Hematología</button>
+                            <button class="btn-category">Pacientes</button>
+                        </div>
+
+                        <div class="files-grid">
+                            <!-- File 1 -->
+                            <div class="file-card">
+                                <div class="file-icon pdf"><i class="ph-fill ph-file-pdf"></i></div>
+                                <div class="file-details">
+                                    <h4>Guía Práctica Oncología 2026</h4>
+                                    <p>Actualizado: Hace 2 días • 2.4 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando PDF...')">Descargar</button>
+                            </div>
+                            <!-- File 2 -->
+                            <div class="file-card">
+                                <div class="file-icon img"><i class="ph-fill ph-file-image"></i></div>
+                                <div class="file-details">
+                                    <h4>Infografía del Paciente</h4>
+                                    <p>Actualizado: Hace 1 semana • 1.1 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Infografía...')">Descargar</button>
+                            </div>
+                            <!-- File 3 -->
+                            <div class="file-card">
+                                <div class="file-icon doc"><i class="ph-fill ph-file-doc"></i></div>
+                                <div class="file-details">
+                                    <h4>Estudio Clínico Fase 3</h4>
+                                    <p>Actualizado: Hace 1 mes • 4.5 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Documento...')">Descargar</button>
+                            </div>
+                            <!-- File 4 -->
+                            <div class="file-card">
+                                <div class="file-icon video"><i class="ph-fill ph-file-video"></i></div>
+                                <div class="file-details">
+                                    <h4>Presentación Terapia Celular</h4>
+                                    <p>Actualizado: Hace 2 meses • 15 MB</p>
+                                </div>
+                                <button class="btn-primary btn-sm" onclick="alert('Descargando Video...')">Descargar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW: CARE CHALLENGES -->
+                <div id="view-challenges" class="view-section" style="display: none;">
+                    <div class="grid-container challenges-grid">
+                        <div class="col-left">
+                            <div class="card my-stats-card">
+                                <h2>Mis Estadísticas</h2>
+                                <div class="stats-row">
+                                    <div class="stat-box">
+                                        <i class="ph-fill ph-star"></i>
+                                        <span>Nivel</span>
+                                        <strong>Diamante</strong>
+                                    </div>
+                                    <div class="stat-box">
+                                        <i class="ph-fill ph-fire"></i>
+                                        <span>Racha</span>
+                                        <strong>12 Días</strong>
+                                    </div>
+                                </div>
+                                <h3 style="margin-top: 20px;">Retos Activos</h3>
+                                <div class="challenge-item">
+                                    <div class="challenge-info">
+                                        <h4>Trivia Diaria: Hematología</h4>
+                                        <p>Completa 5 preguntas sin error</p>
+                                    </div>
+                                    <button class="btn-primary btn-sm" onclick="openTriviaModal()">Jugar</button>
+                                </div>
+                                <div class="challenge-item">
+                                    <div class="challenge-info">
+                                        <h4>Ver 3 Care Clips</h4>
+                                        <p>Progreso: 1/3</p>
+                                    </div>
+                                    <button class="btn-primary btn-sm btn-outline" onclick="document.querySelector('[data-target=view-clips]').click()">Ir a Clips</button>
+                                </div>
+                                <h3 style="margin-top: 20px;">Aprobar o Morir - Dictaminador Edition</h3>
+                                <div class="challenge-item game-banner" onclick="openGameModal()" style="display:flex; flex-direction:row; align-items:center; padding:16px; background:linear-gradient(135deg, #003893, #4a90d9); border-radius:12px; margin-top:10px; border:none;">
+                                    <div style="flex:1;">
+                                        <h4 style="color:white; font-size:15px; margin-bottom:4px;">¡Salva a las gotitas!</h4>
+                                        <p style="color:#cce4fc; font-size:12px; line-height:1.2;">Expande y juega en pantalla completa.</p>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.2); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; color:white; font-size:24px;">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-middle" style="grid-column: span 2;">
+                            <div class="card leaderboard-card">
+                                <div class="card-header">
+                                    <h2>Tabla de Clasificación Nacional</h2>
+                                    <select class="custom-select">
+                                        <option>Este Mes</option>
+                                        <option>Esta Semana</option>
+                                    </select>
+                                </div>
+                                <div class="leaderboard-table">
+                                    <div class="lb-row lb-header">
+                                        <div class="lb-rank">Puesto</div>
+                                        <div class="lb-user">Doctor(a)</div>
+                                        <div class="lb-points">Puntos</div>
+                                    </div>
+                                    <div class="lb-row lb-gold">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 1</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=11" alt="avatar"> Dra. Silvia Torres</div>
+                                        <div class="lb-points">1,250</div>
+                                    </div>
+                                    <div class="lb-row lb-silver">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 2</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=47" alt="avatar"> Dra. Paula Cabrera</div>
+                                        <div class="lb-points">1,120</div>
+                                    </div>
+                                    <div class="lb-row lb-bronze">
+                                        <div class="lb-rank"><i class="ph-fill ph-medal"></i> 3</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=33" alt="avatar"> Dr. Luis Mendez</div>
+                                        <div class="lb-points">980</div>
+                                    </div>
+                                    <div class="lb-row">
+                                        <div class="lb-rank">4</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=12" alt="avatar"> Dr. Roberto Gómez</div>
+                                        <div class="lb-points">850</div>
+                                    </div>
+                                    <div class="lb-row">
+                                        <div class="lb-rank">5</div>
+                                        <div class="lb-user"><img src="https://i.pravatar.cc/150?img=5" alt="avatar"> Dra. Ana Ríos</div>
+                                        <div class="lb-points">700</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
         </div>
+    </div>
+    
+    <!-- GAME MODAL -->
+    <div id="game-modal" class="game-modal">
+        <div class="game-modal-content">
+            <button class="close-game-btn" onclick="closeGameModal()"><i class="ph ph-x"></i></button>
+            <iframe id="game-iframe" src="" class="game-iframe"></iframe>
+        </div>
+    </div>
 
-        <div class="char-header-info">
-            <div class="char-name-row">
-                <input type="text" id="custom-name-input" class="char-name-input" maxlength="18" value="Gotita Azul" spellcheck="false" title="Haz clic para cambiar el nombre">
-                <span class="edit-icon" id="btn-edit-name" title="Editar nombre">✏️</span>
+    <!-- TRIVIA MODAL -->
+    <div id="trivia-modal" class="game-modal">
+        <div class="game-modal-content" style="background: var(--bg-gradient); padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <button class="close-game-btn" onclick="closeTriviaModal()"><i class="ph ph-x"></i></button>
+            
+            <div id="trivia-welcome" style="max-width: 600px;">
+                <h1 style="font-size: 32px; color: var(--text-primary); margin-bottom: 16px;">Trivia: Hematología</h1>
+                <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 32px;">Completa las siguientes 5 preguntas correctamente sin equivocarte para ganar puntos Pfizer Care.</p>
+                <button onclick="startTrivia()" style="background: var(--pfizer-blue); color: white; border: none; padding: 16px 48px; font-size: 18px; font-weight: 800; border-radius: 30px; cursor: pointer; transition: transform 0.2s;">Comenzar Trivia</button>
             </div>
-            <div class="char-subtitle-row">
-                <span class="char-title-text" id="char-title-display">(Gran Dictaminador)</span>
-                <span class="char-rank-tag">ÉLITE+</span>
-            </div>
-            <div class="char-level-row">
-                <span class="char-level-badge">160 / 160 <small>NIVEL</small></span>
-                <span class="char-role-tag">⭐ DICTAMINADOR</span>
-            </div>
-        </div>
 
-        <div class="char-stats-card">
-            <div class="stat-pill"><span class="stat-dot green"></span><span class="stat-label">PV</span><span class="stat-val" id="stat-pv">17,71K</span></div>
-            <div class="stat-pill"><span class="stat-dot blue"></span><span class="stat-label">ATQ</span><span class="stat-val" id="stat-atq">10,66K</span></div>
-            <div class="stat-pill"><span class="stat-dot cyan"></span><span class="stat-label">DEF</span><span class="stat-val" id="stat-def">2,59K</span></div>
-            <div class="stat-pill gold"><span class="stat-dot gold"></span><span class="stat-label">PODER</span><span class="stat-val" id="stat-power">113,46K</span></div>
-        </div>
-    </header>
-
-    <!-- Main Customizer Body: Left Arrow, 3D Canvas Showcase, Right Arrow, Equipment Slots -->
-    <div class="customizer-body">
-        <!-- 3D Rotation Stage -->
-        <div class="showcase-area">
-            <button class="nav-arrow nav-prev" id="btn-prev-char" title="Gotita anterior">❮</button>
-
-            <div class="canvas-3d-wrapper" id="canvas-3d-wrapper">
-                <canvas id="custom-canvas" width="460" height="460"></canvas>
-                <div class="rotation-hint">
-                    <span class="hint-icon">↔</span> Arrastra para rotar 360°
+            <div id="trivia-game" style="display: none; max-width: 600px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 24px; color: var(--text-secondary); font-size: 14px; font-weight: 700;">
+                    <span id="trivia-progress">Pregunta 1 de 5</span>
+                </div>
+                <h2 id="trivia-question" style="font-size: 24px; color: var(--text-primary); margin-bottom: 32px; line-height: 1.4;">¿Cuál es la función principal de los glóbulos rojos?</h2>
+                <div id="trivia-options" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Opciones se inyectan acá -->
                 </div>
             </div>
 
-            <button class="nav-arrow nav-next" id="btn-next-char" title="Siguiente gotita">❯</button>
-        </div>
-
-        <!-- Gear / Equipment Slots Column (Like Invincible screen) -->
-        <div class="equipment-column">
-            <div class="column-title">EQUIPAMIENTO</div>
-
-            <!-- Head slot -->
-            <div class="gear-slot" data-slot="head" id="slot-head" title="Equipar Cabeza">
-                <div class="slot-tier" id="tier-head">Nvl. 3</div>
-                <div class="slot-icon-box">
-                    <span class="slot-icon" id="icon-head">+</span>
-                </div>
-                <div class="slot-info">
-                    <span class="slot-cat">CABEZA</span>
-                    <span class="slot-name" id="name-head">Vacío</span>
-                </div>
-            </div>
-
-            <!-- Body / Outfit slot -->
-            <div class="gear-slot" data-slot="body" id="slot-body" title="Equipar Atuendo">
-                <div class="slot-tier" id="tier-body">Nvl. 4</div>
-                <div class="slot-icon-box">
-                    <span class="slot-icon" id="icon-body">+</span>
-                </div>
-                <div class="slot-info">
-                    <span class="slot-cat">ATUENDO</span>
-                    <span class="slot-name" id="name-body">Vacío</span>
-                </div>
-            </div>
-
-            <!-- Accessory slot -->
-            <div class="gear-slot" data-slot="accessory" id="slot-accessory" title="Equipar Accesorio">
-                <div class="slot-tier" id="tier-accessory">Nvl. 2</div>
-                <div class="slot-icon-box">
-                    <span class="slot-icon" id="icon-accessory">+</span>
-                </div>
-                <div class="slot-info">
-                    <span class="slot-cat">ACCESORIO</span>
-                    <span class="slot-name" id="name-accessory">Vacío</span>
-                </div>
-            </div>
-
-            <!-- Shoes slot -->
-            <div class="gear-slot" data-slot="shoes" id="slot-shoes" title="Equipar Calzado">
-                <div class="slot-tier" id="tier-shoes">Nvl. 3</div>
-                <div class="slot-icon-box">
-                    <span class="slot-icon" id="icon-shoes">+</span>
-                </div>
-                <div class="slot-info">
-                    <span class="slot-cat">CALZADO</span>
-                    <span class="slot-name" id="name-shoes">Vacío</span>
-                </div>
-            </div>
-
-            <!-- Base Droplet Essence -->
-            <div class="gear-slot" data-slot="base" id="slot-base" title="Cambiar Gotita">
-                <div class="slot-tier">BASE</div>
-                <div class="slot-icon-box">
-                    <span class="slot-icon" id="icon-base">💧</span>
-                </div>
-                <div class="slot-info">
-                    <span class="slot-cat">ESENCIA</span>
-                    <span class="slot-name" id="name-base">Gotita Azul</span>
-                </div>
+            <div id="trivia-result" style="display: none; max-width: 600px;">
+                <i id="trivia-icon" class="ph-fill ph-check-circle" style="font-size: 80px; color: var(--pfizer-light-blue); margin-bottom: 24px;"></i>
+                <h1 id="trivia-result-title" style="font-size: 32px; color: var(--text-primary); margin-bottom: 16px;">¡Excelente!</h1>
+                <p id="trivia-result-desc" style="font-size: 16px; color: var(--text-secondary); margin-bottom: 32px;">Has completado el reto sin errores y has ganado 50 puntos Pfizer Care.</p>
+                <button onclick="closeTriviaModal()" style="background: var(--card-bg); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 12px 32px; font-size: 16px; font-weight: 700; border-radius: 30px; cursor: pointer;">Cerrar y Volver</button>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Actions Bar -->
-    <div class="customizer-footer">
-        <button class="btn-sub" id="btn-autoequip" title="Equipar conjunto al azar">⚡ AUTOEQUIPAR</button>
-        <button class="btn-sub" id="btn-unequip" title="Quitar todas las prendas">🗑️ DESEQUIPAR</button>
-        <button class="btn-main" id="btn-start">¡Empezar Turno! 🏃</button>
-    </div>
+    <script src="script.js"></script>
+    <script>
+        function openGameModal() {
+            document.getElementById('game-modal').classList.add('show');
+            document.getElementById('game-iframe').src = 'game.html';
+        }
+        function closeGameModal() {
+            document.getElementById('game-modal').classList.remove('show');
+            document.getElementById('game-iframe').src = '';
+        }
 
-    <div class="controls-hint custom-controls-hint">
-        <span>⬆⬇⬅➡ o WASD para caminar</span>
-        <span>·</span>
-        <span>🖱️ Clic en piso para moverte</span>
-        <span>·</span>
-        <span>[ESPACIO] para interactuar</span>
-    </div>
-</div>
+        // --- Lógica de la Trivia ---
+        const triviaQuestions = [
+            {
+                q: "¿Qué componente de la sangre es responsable de la coagulación?",
+                options: ["Glóbulos Blancos", "Plaquetas", "Plasma", "Glóbulos Rojos"],
+                correct: 1
+            },
+            {
+                q: "¿Qué proteína transporta el oxígeno en los glóbulos rojos?",
+                options: ["Hemoglobina", "Insulina", "Colágeno", "Queratina"],
+                correct: 0
+            },
+            {
+                q: "¿Dónde se producen principalmente las células sanguíneas en los adultos?",
+                options: ["Hígado", "Bazo", "Médula ósea", "Riñones"],
+                correct: 2
+            },
+            {
+                q: "¿Qué tipo de célula sanguínea es clave para la respuesta inmunológica adaptativa?",
+                options: ["Eritrocito", "Plaqueta", "Linfocito", "Neutrófilo"],
+                correct: 2
+            },
+            {
+                q: "¿Cuál es el tiempo de vida promedio de un eritrocito humano?",
+                options: ["10 días", "30 días", "120 días", "1 año"],
+                correct: 2
+            }
+        ];
 
-<!-- Item Picker Drawer / Popover (Opens when clicking any gear slot) -->
-<div id="item-picker-modal" class="picker-modal hidden">
-    <div class="picker-backdrop" id="picker-backdrop"></div>
-    <div class="picker-content">
-        <div class="picker-header">
-            <h3 id="picker-title">Seleccionar Cabeza</h3>
-            <button class="picker-close" id="btn-picker-close">✕</button>
-        </div>
-        <div class="picker-grid" id="picker-grid">
-            <!-- populated by JS -->
-        </div>
-    </div>
-</div>
+        let currentQuestion = 0;
 
-<!-- ========= CANVAS DEL JUEGO ========= -->
-<canvas id="game-canvas"></canvas>
+        function openTriviaModal() {
+            document.getElementById('trivia-modal').classList.add('show');
+            document.getElementById('trivia-welcome').style.display = 'block';
+            document.getElementById('trivia-game').style.display = 'none';
+            document.getElementById('trivia-result').style.display = 'none';
+            currentQuestion = 0;
+        }
 
-<!-- ========= HUD ========= -->
-<div id="hud" class="hidden">
-    <div class="hud-left">
-        <div class="hud-box">
-            <span class="hud-label">CASOS</span>
-            <span class="hud-value" id="hud-score">0</span>
-        </div>
-        <div class="hud-box hud-lives-box">
-            <span class="hud-label">VIDAS</span>
-            <span class="hud-value" id="hud-lives">❤️❤️❤️</span>
-        </div>
-        <div class="hud-box hud-char-badge">
-            <span class="hud-label" id="hud-player-title">DICTAMINADOR</span>
-            <span class="hud-value hud-name-text" id="hud-player-name">Gotita Azul</span>
-        </div>
-    </div>
-    <div class="hud-center">
-        <div class="logo-small">Pfizer CARE <span>Connect</span></div>
-    </div>
-    <div class="hud-right">
-        <div class="hud-box timer-box" id="timer-box">
-            <span class="hud-label">TIEMPO</span>
-            <span class="hud-value" id="hud-timer">--</span>
-        </div>
-    </div>
-</div>
+        function closeTriviaModal() {
+            document.getElementById('trivia-modal').classList.remove('show');
+        }
 
-<!-- ========= MODAL CASO ========= -->
-<div id="modal-case" class="modal-bg hidden">
-    <div class="modal-card case-card-ui">
-        <div class="modal-top-bar">
-            <span class="badge-new">📋 NUEVO EXPEDIENTE</span>
-        </div>
-        <div class="patient-avatar-wrap">
-            <canvas id="modal-patient-canvas" width="90" height="100"></canvas>
-        </div>
-        <h2 class="modal-patient-name" id="modal-name">Cargando...</h2>
-        <div class="modal-row"><span class="modal-label">Síntomas:</span><span id="modal-symptoms">...</span></div>
-        <div class="modal-evidence">
-            <div class="modal-label">📁 Evidencia:</div>
-            <div id="modal-evidence">...</div>
-        </div>
-        <p class="modal-hint">Toma el caso y corre hacia la <strong>puerta correcta</strong> ⏱️</p>
-        <button class="btn-main btn-sm" id="btn-take">¡Tomar Expediente!</button>
-    </div>
-</div>
+        function startTrivia() {
+            document.getElementById('trivia-welcome').style.display = 'none';
+            document.getElementById('trivia-game').style.display = 'block';
+            showQuestion();
+        }
 
-<!-- ========= MODAL FEEDBACK (ACIERTO / ERROR) ========= -->
-<div id="modal-feedback" class="modal-bg hidden">
-    <div class="modal-card feedback-card-ui" id="feedback-card">
-        <div class="modal-top-bar">
-            <span class="badge-feedback" id="feedback-badge">🎉 ¡DICTAMEN CORRECTO!</span>
-        </div>
-        <div class="feedback-avatar-wrap">
-            <canvas id="feedback-char-canvas" width="110" height="120"></canvas>
-        </div>
-        <h2 class="feedback-title" id="feedback-title">¡Gran trabajo!</h2>
-        <div class="feedback-patient-name" id="feedback-patient">Paciente: Juan Pérez</div>
-        
-        <div class="feedback-explanation-box" id="feedback-exp-box">
-            <div class="feedback-exp-header" id="feedback-exp-header">🔍 ANÁLISIS DE DICTAMEN:</div>
-            <p class="feedback-exp-text" id="feedback-exp-text">...</p>
-        </div>
+        function showQuestion() {
+            const q = triviaQuestions[currentQuestion];
+            document.getElementById('trivia-progress').innerText = `Pregunta ${currentQuestion + 1} de 5`;
+            document.getElementById('trivia-question').innerText = q.q;
+            
+            const optionsContainer = document.getElementById('trivia-options');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.innerText = opt;
+                btn.style.cssText = `
+                    background: var(--card-bg);
+                    color: var(--text-primary);
+                    border: 1px solid var(--border-color);
+                    padding: 16px 24px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    text-align: left;
+                    transition: all 0.2s ease;
+                `;
+                btn.onmouseover = () => { btn.style.background = 'rgba(255,255,255,0.1)'; };
+                btn.onmouseout = () => { btn.style.background = 'var(--card-bg)'; };
+                btn.onclick = () => answerQuestion(index);
+                optionsContainer.appendChild(btn);
+            });
+        }
 
-        <div class="feedback-lives-row" id="feedback-lives-row">
-            <span class="feedback-lives-label">Vidas restantes:</span>
-            <span class="feedback-lives-val" id="feedback-lives-val">❤️❤️❤️</span>
-        </div>
+        function answerQuestion(index) {
+            const isCorrect = (index === triviaQuestions[currentQuestion].correct);
+            
+            if (isCorrect) {
+                currentQuestion++;
+                if (currentQuestion >= triviaQuestions.length) {
+                    showResult(true);
+                } else {
+                    showQuestion();
+                }
+            } else {
+                showResult(false);
+            }
+        }
 
-        <button class="btn-main btn-sm" id="btn-feedback-action">¡Continuar! ➡️</button>
-    </div>
-</div>
-
-<!-- ========= GAME OVER ========= -->
-<div id="screen-gameover" class="ui-screen hidden gameover-screen">
-    <div class="go-char-wrap">
-        <canvas id="go-char-canvas" width="130" height="145"></canvas>
-    </div>
-    <h1 class="go-title" id="go-title">¡ERROR FATAL!</h1>
-    <p class="go-reason" id="go-reason">...</p>
-    <div class="go-score-box">
-        Casos resueltos: <strong id="go-score">0</strong>
-    </div>
-    <button class="btn-main btn-retry" id="btn-retry">🔄 Reintentar</button>
-</div>
-
-<script src="game.js"></script>
+        function showResult(success) {
+            document.getElementById('trivia-game').style.display = 'none';
+            document.getElementById('trivia-result').style.display = 'block';
+            
+            const icon = document.getElementById('trivia-icon');
+            const title = document.getElementById('trivia-result-title');
+            const desc = document.getElementById('trivia-result-desc');
+            
+            if (success) {
+                icon.className = 'ph-fill ph-check-circle';
+                icon.style.color = 'var(--pfizer-light-blue)';
+                title.innerText = '¡Reto Completado!';
+                desc.innerText = 'Has respondido las 5 preguntas sin error. ¡Ganaste 50 Puntos Pfizer Care!';
+            } else {
+                icon.className = 'ph-fill ph-x-circle';
+                icon.style.color = 'var(--pfizer-purple)';
+                title.innerText = '¡Ups! Respuesta Incorrecta';
+                desc.innerText = 'No lograste responder las 5 preguntas sin error. Vuelve a intentarlo mañana.';
+            }
+        }
+    </script>
 </body>
 </html>
